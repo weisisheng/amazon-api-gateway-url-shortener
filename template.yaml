@@ -28,12 +28,12 @@ Parameters:
     Default: shortener
   UseLocalClient:
     Type: String
-    Description: Enables ppublic client and local client for testing. (Less secure)
+    Description: Enables public client and local client for testing. (Less secure)
     Default: 'false'
   GithubRepository:
     Type: String
     Description: Forked GitHub repository URL
-  PersonalAcessToken:
+  PersonalAccessToken:
     Type: String
     Description: Github personal access token
     NoEcho: true
@@ -222,7 +222,7 @@ Resources:
 ##   IAM Roles                                                                                   ##
 ###################################################################################################
 
-  ##   Dynamo DB Read Role
+  ##   DynamoDB Read Role
   DDBReadRole:
     Type: "AWS::IAM::Role"
     Properties:
@@ -251,7 +251,7 @@ Resources:
                   - ${TableArn}/index/*
                   - {TableArn: !GetAtt LinkTable.Arn}
 
-  ##   Dynamo DB Read/Write Role
+  ##   DynamoDB Read/Write Role
   DDBCrudRole:
     Type: "AWS::IAM::Role"
     Properties:
